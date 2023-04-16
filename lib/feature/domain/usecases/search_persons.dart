@@ -7,6 +7,7 @@ import 'package:rick_and_morty/core/uscases/usecase.dart';
 import 'package:rick_and_morty/feature/domain/entities/person_entities.dart';
 import 'package:rick_and_morty/feature/domain/repositories/person_repository.dart';
 
+/// Метод поиска персонажа из репозитория
 class SearchPerson extends UseCase<List<PersonEntities>, SearchPersonParams> {
   final PersonRepository personRepository;
 
@@ -19,6 +20,8 @@ class SearchPerson extends UseCase<List<PersonEntities>, SearchPersonParams> {
   }
 }
 
+/// Класс для передачи параметра name - query в метод call класса SearchPerson
+/// Каждый метод call имеет свой параметр, а не какое целое число или строку 
 class SearchPersonParams extends Equatable {
   final String query;
 

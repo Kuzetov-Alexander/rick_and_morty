@@ -7,11 +7,13 @@ import 'package:rick_and_morty/core/uscases/usecase.dart';
 import 'package:rick_and_morty/feature/domain/entities/person_entities.dart';
 import 'package:rick_and_morty/feature/domain/repositories/person_repository.dart';
 
+/// Метод получения данных из репозитория
 class GetAllPersons extends UseCase<List<PersonEntities>, PagePersonParams> {
   final PersonRepository personRepository;
 
   GetAllPersons({required this.personRepository});
 
+  /// Метод с опциональным названием, чтобы не придумывать свои имена для множества методов usecase
   @override
   Future<Either<Failure, List<PersonEntities>>> call(
       PagePersonParams params) async {
@@ -19,6 +21,8 @@ class GetAllPersons extends UseCase<List<PersonEntities>, PagePersonParams> {
   }
 }
 
+/// Класс для передачи страницы в метод call класса GetAllPersons
+/// Каждый метод call имеет свой параметр, а не какое целое число или строку
 class PagePersonParams extends Equatable {
   final int page;
 

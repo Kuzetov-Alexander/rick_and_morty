@@ -1,5 +1,9 @@
+import 'package:rick_and_morty/feature/data/models/location_model.dart';
 import 'package:rick_and_morty/feature/domain/entities/person_entities.dart';
 
+/// Класс, который реализует обработку json файла
+/// 
+/// Его методы описывают реализацию
 class PersonModel extends PersonEntities {
   const PersonModel(
       {required super.id,
@@ -14,6 +18,7 @@ class PersonModel extends PersonEntities {
       required super.episode,
       required super.created});
 
+  /// Реализация
   factory PersonModel.fromJson(Map<String, dynamic> json) {
     return PersonModel(
         id: json['id'],
@@ -22,16 +27,19 @@ class PersonModel extends PersonEntities {
         species: json['species'],
         type: json['type'],
         gender: json['gender'],
-        origin: json['origin'],
-        // != null ? LocationModel.fromJson(json['origin'] as Map <String, dynamic>) : null ,
-        location: json['location'],
-        // != null ? LocationModel.fromJson(json['location']) : null,
+        origin: json['origin'] != null
+            ? LocationModel.fromJson(json['origin'])
+            : null,
+        location: json['location'] != null
+            ? LocationModel.fromJson(json['location'])
+            : null,
         image: json['image'],
         episode:
             (json['episode'] as List<dynamic>).map((e) => e as String).toList(),
         created: DateTime.parse(json['created'] as String));
   }
 
+  /// Реализация
   Map<String, dynamic> toJson() {
     return {
       'id': id,

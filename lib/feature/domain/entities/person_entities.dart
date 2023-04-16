@@ -1,5 +1,15 @@
 import 'package:equatable/equatable.dart';
 
+/// Независимый уровень приложения.
+/// 
+/// Пишем тут бизнес объект с его параметрами.
+///
+/// [API с сайта](https://rickandmortyapi.com/documentation/#filter-characters)
+///
+/// <image src=/assets/markdown/images/api.jpg" alt="Текст с описанием картинки>
+///
+/// ![API](/assets/markdown/images/api.jpg)
+
 class PersonEntities extends Equatable {
   final int id;
   final String name;
@@ -7,8 +17,8 @@ class PersonEntities extends Equatable {
   final String species;
   final String type;
   final String gender;
-  final LocationEntity origin;
-  final LocationEntity location;
+  final LocationEntity? origin;
+  final LocationEntity? location;
   final String image;
   final List<String> episode;
   final DateTime created;
@@ -27,6 +37,8 @@ class PersonEntities extends Equatable {
     required this.created,
   });
 
+/// Equatable пакет, метод, чтобы сравнивать объекты класса [==]
+/// в зависимости от изменения его парметров
   @override
   List<Object?> get props => [
         id,
@@ -43,12 +55,11 @@ class PersonEntities extends Equatable {
       ];
 }
 
+/// Класс, чтобы дополнительно распарсить json [origin] и [location]
+/// по идее нам нужен только параметр name
 class LocationEntity {
   final String name;
   final String url;
 
-  LocationEntity({required this.name, required this.url});
+  const LocationEntity({required this.name, required this.url});
 }
-
-
-// 1.1
