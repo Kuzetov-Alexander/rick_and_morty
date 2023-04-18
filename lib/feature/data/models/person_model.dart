@@ -2,7 +2,7 @@ import 'package:rick_and_morty/feature/data/models/location_model.dart';
 import 'package:rick_and_morty/feature/domain/entities/person_entities.dart';
 
 /// Класс, который реализует обработку json файла
-/// 
+///
 /// Его методы описывают реализацию
 class PersonModel extends PersonEntities {
   const PersonModel(
@@ -51,7 +51,7 @@ class PersonModel extends PersonEntities {
       'origin': origin,
       'location': location,
       'image': image,
-      'created': created,
+      'created': created == null ? null : created.toIso8601String(),
     };
   }
 }

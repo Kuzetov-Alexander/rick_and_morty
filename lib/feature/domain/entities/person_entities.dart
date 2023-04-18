@@ -6,9 +6,7 @@ import 'package:equatable/equatable.dart';
 ///
 /// [API с сайта](https://rickandmortyapi.com/documentation/#filter-characters)
 ///
-/// <image src=/assets/markdown/images/api.jpg" alt="Текст с описанием картинки>
-///
-/// ![API](/assets/markdown/images/api.jpg)
+
 
 class PersonEntities extends Equatable {
   final int id;
