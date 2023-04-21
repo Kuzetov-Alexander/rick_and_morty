@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 /// Кэширование картинок, реализован подключенный пакет
 class PersonCacheImage extends StatelessWidget {
-  final String imageUrl;
-  final double widht, height;
+  final String? imageUrl;
+  final double? widht, height;
 
   const PersonCacheImage({
     Key? key,

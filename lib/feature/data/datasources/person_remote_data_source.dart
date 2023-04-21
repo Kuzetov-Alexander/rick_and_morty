@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 /// Класс, который объявляет методы для https запроса и поиска персонажа
 ///
 /// Контрактный класс
+///
+/// ![Архитектура](https://camo.githubusercontent.com/34a0c4190b51874546bc4260e6dee4bb6d8d67045fb08deb4ae78e84b94e7b31/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f3535362f302a7a55745a59694a3162445475674f5959)
 abstract class PersonRemoteDataSource {
   /// Вызывает https://rickandmortyapi.com/api/character/?page=1
   ///
@@ -25,6 +27,8 @@ class PersonRemoteDataSourceImpl implements PersonRemoteDataSource {
   PersonRemoteDataSourceImpl({required this.client});
 
   /// Метод реализует https запрос
+  ///
+  /// Можно легко заменить URL на другой и приложение не пострадает или поменять на запрос GraphQL
   @override
   Future<List<PersonModel>> getAllPersons(int page) => _getPersonFromUrl(
       'https://rickandmortyapi.com/api/character/?page=$page');

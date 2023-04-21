@@ -11,5 +11,7 @@ class SearchPersons extends PersonSearchEvent {
   final String personQuery;
 
   const SearchPersons(this.personQuery);
+  
+  
 
 }

@@ -51,7 +51,7 @@ class PersonModel extends PersonEntities {
       'origin': origin,
       'location': location,
       'image': image,
-      'created': created == null ? null : created.toIso8601String(),
+      'created': created.toIso8601String(),
     };
   }
 }

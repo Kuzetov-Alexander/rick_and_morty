@@ -11,23 +11,16 @@ const cachedFailureMessage = 'Cache failure';
 class PersonSearchBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
   final SearchPerson searchPerson;
 
-  PersonSearchBloc({required this.searchPerson}) : super(PersonSearchEmpty());
-
-  Stream<PersonSearchState> mapEventToState(PersonSearchEvent event) async* {
-    if (event is SearchPersons) {
-      yield* _mapFetchPersonsToState(event.personQuery);
-    }
-  }
-
-  Stream<PersonSearchState> _mapFetchPersonsToState(String personQuery) async* {
-    yield PersonSearchLoading();
-
-    final failureOrPerson =
-        await searchPerson(SearchPersonParams(query: personQuery));
-
-    yield failureOrPerson.fold(
-        (failure) => PersonSearchError(message: _mapFailureToMessage(failure)),
-        (person) => PersonSearchLoaded(persons: person));
+  PersonSearchBloc({required this.searchPerson}) : super(PersonSearchEmpty()) {
+    on<SearchPersons>((event, emit) async {
+      emit(PersonSearchLoading());
+      final failureOrPerson =
+          await searchPerson(SearchPersonParams(query: event.personQuery));
+      emit(failureOrPerson.fold(
+          (failure) =>
+              PersonSearchError(message: _mapFailureToMessage(failure)),
+          (person) => PersonSearchLoaded(persons: person)));
+    });
   }
 
   String _mapFailureToMessage(Failure failure) {
