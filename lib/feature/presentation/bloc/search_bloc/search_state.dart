@@ -1,4 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
+
 import 'package:rick_and_morty/feature/domain/entities/person_entities.dart';
 
 abstract class PersonSearchState extends Equatable {

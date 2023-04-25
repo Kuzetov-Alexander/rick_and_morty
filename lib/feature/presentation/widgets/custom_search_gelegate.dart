@@ -55,10 +55,13 @@ class CustomSearchDelegate extends SearchDelegate {
           if (person.isEmpty) {
             return _showErrorText('No Characters with that name found');
           }
-          return ListView.builder(itemBuilder: (context, int index) {
-            PersonEntities result = person[index];
-            return SearchResult(personResult: result);
-          });
+          return ListView.builder(
+            itemCount: person.length,
+            itemBuilder: (context, int index) {
+              PersonEntities result = person[index];
+              return SearchResult(personResult: result);
+            },
+          );
         } else if (state is PersonSearchError) {
           return _showErrorText(state.message);
         } else {

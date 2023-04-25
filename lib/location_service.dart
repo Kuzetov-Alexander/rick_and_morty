@@ -13,6 +13,7 @@ import 'package:rick_and_morty/feature/presentation/bloc/search_bloc/search_bloc
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// На протяжении жизни прилки нужны зависимости: работа с кэш, firebase
 final sl = GetIt.instance;
 
 Future<void> init() async {

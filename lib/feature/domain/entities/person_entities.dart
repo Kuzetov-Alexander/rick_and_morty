@@ -49,7 +49,7 @@ class PersonEntities extends Equatable {
         location,
         image,
         episode,
-        created
+        created,
       ];
 }
 

@@ -25,7 +25,7 @@ abstract class PersonRepository {
 /// <Failure - сбои, Entities - List(PersonEntities)
 ///
 /// Ошибки будет использоваться в нескольких методах и слоях приложения, папка core/error
-class GetAllPerson implements PersonRepository {
+class PersonRepositoryImpl implements PersonRepository {
   @override
   Future<Either<Failure, List<PersonEntities>>> getAllPersons(int page) {
     throw UnimplementedError();
@@ -36,4 +36,3 @@ class GetAllPerson implements PersonRepository {
     throw UnimplementedError();
   }
 }
-
